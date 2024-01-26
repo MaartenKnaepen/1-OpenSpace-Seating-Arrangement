@@ -40,7 +40,7 @@ Store the seating arrangement in an Excel file named seatings.xlsx.
 Example
 Here's an example of how to use the tool:
 ```
-Please provide the path of the file with the names: 
+Please provide the path of the file with the names: colleagues.csv
 How many seats per table? 4
 Can people sit alone? (yes=True, no=False) yes
 ```
