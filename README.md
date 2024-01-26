@@ -1,5 +1,5 @@
 
-# OpenSpace Seating Arrangement
+# OpenSpace Organizer
 
 Welcome to the OpenSpace Seating Arrangement tool! This Python application helps you organize and display seating arrangements for an open space, allowing customization based on the number of seats per table and whether individuals can sit alone.
 
