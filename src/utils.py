@@ -41,3 +41,11 @@ def to_dict(keys, values):
 
     output = dict(zip(keys, values))
     return output
+
+def randomize(self):
+        """
+        Randomizes the input and divides into sublist based on nr of chairs per table
+        """
+        random.shuffle(self.names)
+        self.names_per_table = sublists(self.names, self.numseats)
+        return self.names_per_table

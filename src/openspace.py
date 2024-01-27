@@ -4,11 +4,10 @@ import random
 import pandas as pd
 from src.utils import sublists  
 from src.utils import to_dict
-from src.utils import import_csv
+from src.utils import randomize
 
 # Collecting variables to make the code work
 maxppl = int(input('How many people can you fit in this room?'))
-names = import_csv()
 
 class OpenSpace:
     """
@@ -20,7 +19,7 @@ class OpenSpace:
     - display: Creates a Pandas DataFrame to display the seat assignments.
     - store: Saves the seat assignments to an Excel file.
     """
-    def __init__(self, numseats, lonely):
+    def __init__(self, numseats, names, lonely):
         """
         Initializes an OpenSpace object.
 
@@ -45,14 +44,6 @@ class OpenSpace:
         # Create a list of strings representing the names of each table for in the dataframe
         self.tablestrings = [f"Table {k+1}" for k in range(self.numtables)]
 
-
-    def randomize(self):
-        """
-        Randomizes the input and divides into sublist based on nr of chairs per table
-        """
-        random.shuffle(names)
-        self.names_per_table = sublists(names, self.numseats)
-        return self.names_per_table
     
     def organize(self):
         """
@@ -64,6 +55,7 @@ class OpenSpace:
             while len(self.names_per_table[-1]) == 1:
                 self.numseats = self.numseats + 1
                 self.names_per_table = sublists(self.names, self.numseats)
+        #assign Seats in Table objects        
         for tbl, names in zip(self.tablelist, self.names_per_table):
             for name in names:
                 tbl.assign_seat(name)
