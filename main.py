@@ -1,4 +1,5 @@
 from src.openspace import OpenSpace
+from src.utils import import_csv
 
 def main():
     """
@@ -7,9 +8,10 @@ def main():
     - Creates an OpenSpace object with the specified parameters.
     - Organizes the seat assignments, displays the arrangement, and stores it in an Excel file.
     """
+    names = import_csv()
     numseats = int(input('How many seats per table?'))
     lonely = str(input('If you want people to sit alone type yes, if not, type no: '))
-    openspacetest = OpenSpace(numseats, lonely)
+    openspacetest = OpenSpace(numseats,names, lonely)
     openspacetest.organize()
     print(openspacetest.display())
     print(openspacetest.num_people())
